@@ -1,0 +1,58 @@
+REPRESENTATION:
+// un spectacle fait g ́en ́eralement l’objet de plusieurs repr ́esentations ropos ́ees `a des
+moments diff ́erents
+- SPECTACLE
+- dateRep *
+
+SPECTACLE :
+//Un spectacle est identifi ́e par un num ́ero et on connaˆıt le nom
+et le prix de base. 
+-noSpec *
+-nomSpec *
+-prixBaseSpec
+
+
+SALLE :
+//La seule salle du th ́eˆatre est partitionn ́ee en zones num ́erot ́ees
+-ZONE
+
+ZONE :
+//zones num ́erot ́ees, regroupant chacune un
+ensemble de places
+-noZone
+-PLACE
+//Toutes les places de la mˆeme zone sont dans la mˆeme cat ́egor
+-catégorie
+
+
+PLACE:
+//Une place est identifi ́ee par un num ́ero de rang (unique par salle), et un num ́ero
+de place dans le rang. 
+-noRang*
+-noPlace*
+
+
+CATEGORIE:
+//Un taux par rapport au prix de
+base est associ ́e `a chaque cat ́egorie (ex. 1 pour le poulailler, 1.5 pour l’orchestre et 2 pour le balcon).
+-catZone *
+-tauxZone *
+
+VENTES:
+//Un achat peut concerner
+plusieurs places
+//la cr ́eation d’un dossier achat (identifi ́e par
+un num ́ero)
+-ACHAT
+-prix global (récupérable)
+
+ACHAT:
+// Chaque place vendue par repr ́esentation fait l’objet de l’ ́emission d’un ticket contenant
+la date au moment de la transaction 
+- num_achat *
+- ticket
+- PLACE
+- date_achat
+
+
+
