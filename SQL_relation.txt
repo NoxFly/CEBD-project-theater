@@ -1,0 +1,21 @@
+LesRepresentations:
+
+noSpec -> nomSpec // " Un spectacle est identifi ́e par un num ́ero et on connaˆıt le nom et le prix de base."
+noSpec -> prixBaseSpec
+
+noSpec,dateRep -> promoRep // "Pour certaines repr ́esentations, le prix des places fait l’objet d’une promotion"
+
+dateRep -> noSpec // "La seule salle" (1 seul spéctacle instant T)
+
+prixBaseSpec,promoRep -> prixRep // prixRep = prixBaseSpec * promoRep
+
+-----------------------------------------
+
+LesPlaces:
+
+noZone -> catZone // "Une zone est associ ́ee `a une seule cat ́egorie tarifair"
+
+noRang, place -> noZone // "zones num ́erot ́ees, regroupant chacune un ensemble de places"
+// "Une place est identifi ́ee par un num ́ero de rang (unique par salle)"
+
+catZone -> tauxZone // "Un taux par rapport au prix de base est associ ́e `a chaque cat ́egorie"
