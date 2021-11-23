@@ -3,6 +3,7 @@ REPRESENTATION:
 moments diff ́erents
 - SPECTACLE
 - dateRep *
+- promotion *
 
 SPECTACLE :
 //Un spectacle est identifi ́e par un num ́ero et on connaˆıt le nom
