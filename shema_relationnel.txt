@@ -26,9 +26,9 @@ LesPlaces(noRang*,noPlace*, noZone)
 --------
 LesPlaces[noZone] ⊆ LesZones[noZone]
 
-LesTickets(num_Ticket*, date_achat, num_representation, noRang, noPlace)
+LesTickets(num_Ticket*, date_achat, prix_ticket, num_representation, noRang, noPlace)
 clé : num_ticket
-<nT, d, nRe, nRo, nP> le ticket de numéro nT acheter a la date d, pour la reprensation numéro nRe
+<nT, d, p, nRe, nRo, nP> le ticket de numéro nT acheter a la date d au prix p, pour la reprensation numéro nRe
 a la place numéro nP au rang nRo
 --num_representation
 --noRang
