@@ -1,0 +1,5 @@
+LesSpectacle(noSpec*, nomSpec, prixBaseSpec)
+clé : noSpec
+<n,m,p> le spectacle au numéro n, qui porte le nom m, au prix sans réduction p
+
+
