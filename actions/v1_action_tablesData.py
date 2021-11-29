@@ -37,13 +37,13 @@ class AppTablesDataV1(QDialog):
     # Fonction permettant de mettre à jour toutes les tables
     @pyqtSlot()
     def refreshAllTablesV1(self):
-
+        pass
         # TODO 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         # TODO 1.4 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         # TODO 1.5 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
-        self.refreshTable(self.ui.label_representations, self.ui.tableRepresentations,
-                          "SELECT noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep "
-                          "FROM LesRepresentations")
-        self.refreshTable(self.ui.label_places, self.ui.tablePlaces,
-                          "SELECT noPlace, noRang, noZone, catZone, tauxZone "
-                          "FROM LesPlaces")
+        # self.refreshTable(self.ui.label_representations, self.ui.tableRepresentations,
+        #                   "SELECT noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep "
+        #                   "FROM LesRepresentations")
+        # self.refreshTable(self.ui.label_places, self.ui.tablePlaces,
+        #                   "SELECT noPlace, noRang, noZone, catZone, tauxZone "
+        #                   "FROM LesPlaces")

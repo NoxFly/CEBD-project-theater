@@ -29,11 +29,11 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>7</number>
      </property>
-     <widget class="QWidget" name="tabRepresentations">
+     <widget class="QWidget" name="tabSpectacle">
       <attribute name="title">
-       <string>LesRepresentations</string>
+       <string>Spectacle</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -50,6 +50,12 @@
            <height>400</height>
           </size>
          </property>
+         <property name="maximumSize">
+          <size>
+           <width>1021</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="baseSize">
           <size>
            <width>0</width>
@@ -60,7 +66,7 @@
           <enum>Qt::LeftToRight</enum>
          </property>
          <property name="columnCount">
-          <number>6</number>
+          <number>3</number>
          </property>
          <attribute name="horizontalHeaderCascadingSectionResizes">
           <bool>true</bool>
@@ -92,22 +98,7 @@
          </column>
          <column>
           <property name="text">
-           <string>dateRep</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>promoRep</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
            <string>prixBaseSpec</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>prixRep</string>
           </property>
          </column>
         </widget>
@@ -161,9 +152,9 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabPlaces">
+     <widget class="QWidget" name="tabRepresentation">
       <attribute name="title">
-       <string>LesPlaces</string>
+       <string>Representation</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
@@ -182,27 +173,17 @@
          </attribute>
          <column>
           <property name="text">
-           <string>noPlace</string>
+           <string>noRep</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>noRang</string>
+           <string>dateRep</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>noZone</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>typeZone</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>tauxZone</string>
+           <string>promoRep</string>
           </property>
          </column>
         </widget>
@@ -255,6 +236,186 @@
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QWidget" name="tabZone">
+      <attribute name="title">
+       <string>Zone</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>1021</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>noZone</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>catZone</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabCategorie">
+      <attribute name="title">
+       <string>Categorie</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>1021</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>catZone</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>tauxZone</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabPlace">
+      <attribute name="title">
+       <string>Place</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>1021</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>noRang</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>noPlace</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>noZone</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabReduction">
+      <attribute name="title">
+       <string>Reduction</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_6">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>1021</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>typeReduc</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>tauxReduc</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabTicket">
+      <attribute name="title">
+       <string>Ticket</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>1021</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>noTicket</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>noAchat</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>dateAchat</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>noRep</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>noRang</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>noPlace</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabVente">
+      <attribute name="title">
+       <string>Vente</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableWidget_5">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>1021</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>noAchat</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>prixGlobal</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>typeReduc</string>
+        </property>
+       </column>
+      </widget>
      </widget>
     </widget>
    </item>
