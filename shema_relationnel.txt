@@ -1,0 +1,54 @@
+LesSpectacles(noSpec*, nomSpec, prixBaseSpec)
+clé : noSpec
+<n,m,p> le spectacle au numéro n, qui porte le nom m, au prix sans réduction p
+
+LesRepresentations(num_representation, dateRep, promotion, noSpec)
+clé : num_representation
+<nR,d,p,n> le numéro de la representation nR, représente
+le spéctacle numéro n, a la date d, avec une promotion de p
+--------
+LesRepresentations[noSpec] ⊆ LesSpectacles[noSpec]
+
+LaSalle() ---- inutile pas d'information on a qu'une seul salle !
+
+LesZones(noZone*, catZone*)
+clé : noZone, catZone
+<nZ, c> la zone nuémro nZ a pour nom de catégorie c
+--------
+LesZones[catZone] ⊆ LesCategories[catZone]
+
+LesCategories(catZone*, tauxZone)
+clé : catZone
+<c, t> LesCategorie on pour nom C et un taux de t
+
+LesPlaces(noRang*,noPlace*, noZone)
+<r,p, z> la place au rang r et au numéro p citué dans la zone numéro z
+--------
+LesPlaces[noZone] ⊆ LesZones[noZone]
+
+LesTickets(num_Ticket*, date_achat, prix_ticket, num_representation, noRang, noPlace)
+clé : num_ticket
+<nT, d, p, nRe, nRo, nP> le ticket de numéro nT acheter a la date d au prix p, pour la reprensation numéro nRe
+a la place numéro nP au rang nRo
+--num_representation
+--noRang
+--noPlace
+--------
+LesTickets[num_representation] ⊆ LesRepresentations[num_representation]
+--------
+LesTickets[noRang] ⊆ LesPlaces[noRang]
+LesTickets[noPlace] ⊆ LesPlaces[noPlace]
+
+LesVentes(num_achat*, prix_global, type_Reduction)
+clé : num_achat
+<n, p, t> la vente a pour numéro d'achat n, au prix global p, avec pour type de réduction t
+--------
+LesVentes[type_Reduction] ⊆ LesReduction[type_Reduction]
+
+
+LesReduction(type_Reduction*, taux_de_reduction)
+clé : type_Reduction
+<tY, tA> les réductions on pour type tY avec un taux tA
+
+
+
