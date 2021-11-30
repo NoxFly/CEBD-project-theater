@@ -29,7 +29,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>7</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabSpectacle">
       <attribute name="title">
@@ -37,7 +37,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QTableWidget" name="tableRepresentations">
+        <widget class="QTableWidget" name="tableSpectacle">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -104,7 +104,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_representations">
+        <widget class="QLabel" name="label_spectacle">
          <property name="palette">
           <palette>
            <active>
@@ -158,7 +158,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QTableWidget" name="tablePlaces">
+        <widget class="QTableWidget" name="tableRepresentation">
          <attribute name="horizontalHeaderDefaultSectionSize">
           <number>200</number>
          </attribute>
@@ -178,6 +178,11 @@
          </column>
          <column>
           <property name="text">
+           <string>noSpec</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
            <string>dateRep</string>
           </property>
          </column>
@@ -189,7 +194,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_places">
+        <widget class="QLabel" name="label_representation">
          <property name="palette">
           <palette>
            <active>
@@ -237,36 +242,11 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabZone">
-      <attribute name="title">
-       <string>Zone</string>
-      </attribute>
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="geometry">
-        <rect>
-         <x>11</x>
-         <y>11</y>
-         <width>1021</width>
-         <height>466</height>
-        </rect>
-       </property>
-       <column>
-        <property name="text">
-         <string>noZone</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>catZone</string>
-        </property>
-       </column>
-      </widget>
-     </widget>
      <widget class="QWidget" name="tabCategorie">
       <attribute name="title">
        <string>Categorie</string>
       </attribute>
-      <widget class="QTableWidget" name="tableWidget_2">
+      <widget class="QTableWidget" name="tableCategorie">
        <property name="geometry">
         <rect>
          <x>11</x>
@@ -286,12 +266,69 @@
         </property>
        </column>
       </widget>
+      <widget class="QLabel" name="label_categorie">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>484</y>
+         <width>1021</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabZone">
+      <attribute name="title">
+       <string>Zone</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableZone">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>1021</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>noZone</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>catZone</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QLabel" name="label_zone">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>484</y>
+         <width>1021</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabPlace">
       <attribute name="title">
        <string>Place</string>
       </attribute>
-      <widget class="QTableWidget" name="tableWidget_3">
+      <widget class="QTableWidget" name="tablePlace">
        <property name="geometry">
         <rect>
          <x>11</x>
@@ -316,12 +353,28 @@
         </property>
        </column>
       </widget>
+      <widget class="QLabel" name="label_place">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>484</y>
+         <width>1021</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabReduction">
       <attribute name="title">
        <string>Reduction</string>
       </attribute>
-      <widget class="QTableWidget" name="tableWidget_6">
+      <widget class="QTableWidget" name="tableReduction">
        <property name="geometry">
         <rect>
          <x>11</x>
@@ -341,12 +394,28 @@
         </property>
        </column>
       </widget>
+      <widget class="QLabel" name="label_reduction">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>484</y>
+         <width>1021</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabTicket">
       <attribute name="title">
        <string>Ticket</string>
       </attribute>
-      <widget class="QTableWidget" name="tableWidget_4">
+      <widget class="QTableWidget" name="tableTicket">
        <property name="geometry">
         <rect>
          <x>11</x>
@@ -367,11 +436,6 @@
        </column>
        <column>
         <property name="text">
-         <string>dateAchat</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
          <string>noRep</string>
         </property>
        </column>
@@ -386,12 +450,28 @@
         </property>
        </column>
       </widget>
+      <widget class="QLabel" name="label_ticket">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>484</y>
+         <width>1021</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tabVente">
       <attribute name="title">
        <string>Vente</string>
       </attribute>
-      <widget class="QTableWidget" name="tableWidget_5">
+      <widget class="QTableWidget" name="tableVente">
        <property name="geometry">
         <rect>
          <x>11</x>
@@ -407,6 +487,11 @@
        </column>
        <column>
         <property name="text">
+         <string>dateAchat</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
          <string>prixGlobal</string>
         </property>
        </column>
@@ -415,6 +500,22 @@
          <string>typeReduc</string>
         </property>
        </column>
+      </widget>
+      <widget class="QLabel" name="label_vente">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>484</y>
+         <width>1021</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </widget>
     </widget>

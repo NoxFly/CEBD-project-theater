@@ -13,9 +13,11 @@ CREATE TABLE Spectacle (
 
 CREATE TABLE Representation (
     noRep           INTEGER         PRIMARY KEY,
+    noSpec          INTEGER         NOT NULL,
     dateRep         DATE            NOT NULL,
     promoRep        DECIMAL(4, 2)   NOT NULL        DEFAULT 0,
-    CHECK (promoRep >= 0 AND promoRep <= 1)
+    CHECK (promoRep >= 0 AND promoRep <= 1),
+    FOREIGN KEY (noSpec) REFERENCES Spectacle(noSpec)
 );
 
 CREATE TABLE Categorie (
@@ -32,7 +34,7 @@ CREATE TABLE Zone (
 );
 
 CREATE TABLE Place (
-    noRang          INTEGER         NOT NULL        UNIQUE,
+    noRang          INTEGER         NOT NULL,
     noPlace         INTEGER         NOT NULL,
     noZone          INTEGER         NOT NULL,
     CONSTRAINT pk_place_noRang_noPlace PRIMARY KEY (noRang, noPlace)
@@ -44,27 +46,26 @@ CREATE TABLE Reduction (
     CHECK (typeReduc IN ('adhérent', 'senior', 'étudiant', 'sans reduction'))
 );
 
-
-CREATE TABLE Ticket (
-    noTicket        INTEGER         NOT NULL,
-    noAchat         INTEGER         NOT NULL,
-    dateAchat       DATE            NOT NULL,
-    noRep           INTEGER         NOT NULL,
-    noRang          INTEGER         NOT NULL,
-    noPlace         INTEGER         NOT NULL,
-    CONSTRAINT pk_ticket_noTicket_noAchat PRIMARY KEY (noTicket, noAchat),
-    FOREIGN KEY (noRep) REFERENCES Representation(noRep),
-    FOREIGN KEY (noRang) REFERENCES Place(noRang),
-    FOREIGN KEY (noPlace) REFERENCES Place(noPlace)
-);
-
 CREATE TABLE Vente (
     noAchat         INTEGER         PRIMARY KEY,
+    dateAchat       DATE            NOT NULL,
     prixGlobal      DECIMAL(6, 2)   NOT NULL,
     typeReduc       VARCHAR(32)     NOT NULL,
     FOREIGN KEY (typeReduc) REFERENCES Reduction(typeReduc)
 );
 
+CREATE TABLE Ticket (
+    noTicket        INTEGER         NOT NULL,
+    noAchat         INTEGER         NOT NULL,
+    noRep           INTEGER         NOT NULL,
+    noRang          INTEGER         NOT NULL,
+    noPlace         INTEGER         NOT NULL,
+    CONSTRAINT pk_ticket_noTicket_noAchat PRIMARY KEY (noTicket, noAchat),
+    FOREIGN KEY (noAchat) REFERENCES Vente(noAchat),
+    FOREIGN KEY (noRep) REFERENCES Representation(noRep),
+    FOREIGN KEY (noRang) REFERENCES Place(noRang),
+    FOREIGN KEY (noPlace) REFERENCES Place(noPlace)
+);
 
 
 

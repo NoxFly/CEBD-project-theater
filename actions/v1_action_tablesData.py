@@ -37,13 +37,11 @@ class AppTablesDataV1(QDialog):
     # Fonction permettant de mettre à jour toutes les tables
     @pyqtSlot()
     def refreshAllTablesV1(self):
-        pass
-        # TODO 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
-        # TODO 1.4 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
-        # TODO 1.5 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
-        # self.refreshTable(self.ui.label_representations, self.ui.tableRepresentations,
-        #                   "SELECT noSpec, nomSpec, dateRep, promoRep, prixBaseSpec, prixRep "
-        #                   "FROM LesRepresentations")
-        # self.refreshTable(self.ui.label_places, self.ui.tablePlaces,
-        #                   "SELECT noPlace, noRang, noZone, catZone, tauxZone "
-        #                   "FROM LesPlaces")
+        self.refreshTable(self.ui.label_spectacle, self.ui.tableSpectacle, "SELECT noSpec, nomSpec, prixBaseSpec FROM Spectacle")
+        self.refreshTable(self.ui.label_representation, self.ui.tableRepresentation, "SELECT noRep, noSpec, dateRep, promoRep FROM Representation")
+        self.refreshTable(self.ui.label_categorie, self.ui.tableCategorie, "SELECT catZone, tauxZone FROM Categorie")
+        self.refreshTable(self.ui.label_zone, self.ui.tableZone, "SELECT noZone, catZone FROM Zone")
+        self.refreshTable(self.ui.label_place, self.ui.tablePlace, "SELECT noRang, noPlace, noZone FROM Place")
+        self.refreshTable(self.ui.label_reduction, self.ui.tableReduction, "SELECT typeReduc, tauxReduc FROM Reduction")
+        self.refreshTable(self.ui.label_ticket, self.ui.tableTicket, "SELECT noTicket, noAchat, noRep, noRang, noPlace FROM Ticket")
+        self.refreshTable(self.ui.label_vente, self.ui.tableVente, "SELECT noAchat, dateAchat, prixGlobal, typeReduc FROM Vente")
