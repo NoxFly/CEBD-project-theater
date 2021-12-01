@@ -15,38 +15,13 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Travail à réaliser : améliorez l'interface afin de proposer une liste des catégories possibles (issues de la base de données).</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
+    <widget class="QComboBox" name="comboBox_categorie">
+     <item>
+      <property name="text">
+       <string>Choisir une catégorie</string>
+      </property>
+     </item>
     </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Saisissez une catégorie :</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_fct_comp_2"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Valider</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
    <item>
     <widget class="QTableWidget" name="table_fct_comp_2">
@@ -89,24 +64,7 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>fct_comp_2</receiver>
-   <slot>refreshResult()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>364</x>
-     <y>52</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>444</x>
-     <y>81</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>refreshResult()</slot>
  </slots>

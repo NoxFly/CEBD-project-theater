@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>896</width>
-    <height>754</height>
+    <width>715</width>
+    <height>770</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,19 +21,6 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <widget class="QLabel" name="label">
@@ -476,22 +463,6 @@
      </layout>
     </item>
     <item>
-     <widget class="QLabel" name="label_9">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>1.5 Créer une vue  avec le noDos et le montant total correspondant. Modifier l'affichage (Consultation BD V1)</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_7"/>
     </item>
     <item>
@@ -714,37 +685,7 @@
       </property>
      </widget>
     </item>
-    <item>
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>896</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFiles">
-    <property name="title">
-     <string>Fichier</string>
-    </property>
-    <addaction name="actionQuitter"/>
-   </widget>
-   <addaction name="menuFiles"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionQuitter">

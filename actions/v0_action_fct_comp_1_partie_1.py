@@ -13,25 +13,32 @@ class AppFctComp1Partie1(QDialog):
         super(QDialog, self).__init__()
         self.ui = uic.loadUi("gui/fct_comp_1.ui", self)
         self.data = data
+        self.ui.comboBox_categorie.currentTextChanged.connect(self.refreshResult)
+
 
     # Fonction de mise à joru de l'affichage
     @pyqtSlot()
     def refreshResult(self):
         # TODO 1.1 : fonction à modifier pour remplacer la zone de saisie par une liste de valeurs prédéfinies dans l'interface une fois le fichier ui correspondant mis à jour
         display.refreshLabel(self.ui.label_fct_comp_1, "")
-        if not self.ui.lineEdit_fct_comp_1.text().strip():
-            self.ui.table_fct_comp_1.setRowCount(0)
+
+        val = self.ui.comboBox_categorie.currentText()
+
+        if not val or val == "Choisir une catégorie":
+            self.ui.table_fct_comp_1.clearContents()
             display.refreshLabel(self.ui.label_fct_comp_1, "Veuillez indiquer un nom de catégorie")
+        
         else:
             try:
-                cursor = self.data.cursor()
-                result = cursor.execute(
-                    "SELECT noPlace, noRang, noZone, catZone, tauxZone FROM V0_LesPlaces WHERE catZone = ?",
-                    [self.ui.lineEdit_fct_comp_1.text().strip()])
+                result = self.data.cursor().execute(
+                    "SELECT noPlace, noRang, noZone FROM Place LEFT JOIN Zone USING(noZone) WHERE catZone = ? ORDER BY noRang, noPlace",
+                    [val]
+                )
+                
             except Exception as e:
-                self.ui.table_fct_comp_1.setRowCount(0)
+                self.ui.table_fct_comp_1.clearContents()
                 display.refreshLabel(self.ui.label_fct_comp_1, "Impossible d'afficher les résultats : " + repr(e))
+            
             else:
-                i = display.refreshGenericData(self.ui.table_fct_comp_1, result)
-                if i == 0:
+                if display.refreshGenericData(self.ui.table_fct_comp_1, result) == 0:
                     display.refreshLabel(self.ui.label_fct_comp_1, "Aucun résultat")
