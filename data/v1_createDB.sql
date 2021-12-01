@@ -50,10 +50,7 @@ CREATE TABLE Reduction (
 
 CREATE TABLE Vente (
     noAchat         INTEGER         PRIMARY KEY,
-    dateAchat       DATE            NOT NULL,
-    prixGlobal      DECIMAL(6, 2)   NOT NULL,
-    typeReduc       VARCHAR(32)     NOT NULL,
-    FOREIGN KEY (typeReduc) REFERENCES Reduction(typeReduc)
+    dateAchat       DATE            NOT NULL
 );
 
 CREATE TABLE Ticket (
@@ -62,10 +59,12 @@ CREATE TABLE Ticket (
     noRep           INTEGER         NOT NULL,
     noRang          INTEGER         NOT NULL,
     noPlace         INTEGER         NOT NULL,
+    prixTotal       DECIMAL(6, 2)   NOT NULL,
+    typeReduc       VARCHAR(32)     NOT NULL,
     FOREIGN KEY (noAchat) REFERENCES Vente(noAchat),
     FOREIGN KEY (noRep) REFERENCES Representation(noRep),
-    FOREIGN KEY (noRang) REFERENCES Place(noRang),
-    FOREIGN KEY (noPlace) REFERENCES Place(noPlace)
+    FOREIGN KEY (noPlace, noRang) REFERENCES Place(noPlace, noRang),
+    FOREIGN KEY (typeReduc) REFERENCES Reduction(typeReduc)
 );
 
 
@@ -76,12 +75,19 @@ CREATE TABLE Ticket (
 
 -- TODO 1.4 : Créer une vue LesRepresentations ajoutant le nombre de places disponible et d'autres possibles attributs calculés.
 CREATE VIEW LesRepresentations AS
-    SELECT nomSpec, dateRep, (500 - count(noTicket)) AS nbPlaceDisponibles, count(noTicket) AS nbPlacesOccupees
+    SELECT nomSpec, dateRep, (500 - COUNT(noTicket)) AS nbPlaceDisponibles, COUNT(noTicket) AS nbPlacesOccupees
     FROM Spectacle
-        LEFT JOIN Representation USING (noSpec)
-        LEFT JOIN Ticket USING (noRep)
+        LEFT JOIN Representation USING(noSpec)
+        LEFT JOIN Ticket USING(noRep)
     GROUP BY nomSpec, dateRep;
 
 
 -- TODO 1.5 : Créer une vue  avec le noDos et le montant total correspondant.
+CREATE VIEW LesVentes AS
+    SELECT noAchat, SUM(prixTotal) AS montantTotal
+    FROM Ticket
+        LEFT JOIN Vente USING(noAchat)
+    GROUP BY noAchat;
+
+
 -- TODO 3.3 : Ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)

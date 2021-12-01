@@ -56,10 +56,13 @@ class AppTablesDataV1(QDialog):
             "SELECT typeReduc, tauxReduc FROM Reduction")
 
         self.refreshTable(self.ui.label_ticket, self.ui.tableTicket,
-            "SELECT noTicket, noAchat, noRep, noRang, noPlace FROM Ticket")
+            "SELECT noTicket, noAchat, noRep, noRang, noPlace, prixTotal, typeReduc FROM Ticket")
 
         self.refreshTable(self.ui.label_vente, self.ui.tableVente,
-            "SELECT noAchat, dateAchat, prixGlobal, typeReduc FROM Vente")
+            "SELECT noAchat, dateAchat FROM Vente")
             
         self.refreshTable(self.ui.label_lesrepresentations, self.ui.tableLesRepresentations,
             "SELECT nomSpec, dateRep, nbPlaceDisponibles, nbPlacesOccupees FROM LesRepresentations")
+
+        self.refreshTable(self.ui.label_lesventes, self.ui.tableLesVentes,
+            "SELECT noAchat, montantTotal FROM LesVentes")
