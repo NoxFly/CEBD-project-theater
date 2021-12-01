@@ -1,12 +1,10 @@
--- TODO 1.3 : Créer les tables manquantes et modifier celles ci-dessous
-
--- Primary key par defaut a un NOT NULL. Inutile de le preciser donc.
-
 -- TABLES
+
+-- TODO 1.3 : Créer les tables manquantes et modifier celles ci-dessous
 
 CREATE TABLE Spectacle (
     noSpec          INTEGER         PRIMARY KEY,
-    nomSpec         VARCHAR(64)     NOT NULL,
+    nomSpec         VARCHAR(64)     NOT NULL        UNIQUE,
     prixBaseSpec    DECIMAL(6, 2)   NOT NULL,
     CHECK (prixBaseSpec >= 0)
 );
@@ -23,7 +21,7 @@ CREATE TABLE Representation (
 CREATE TABLE Categorie (
     catZone         VARCHAR(32)     PRIMARY KEY,
     tauxZone        DECIMAL(4, 2)   NOT NULL,
-    CHECK (tauxZone >= 0 AND tauxZone <= 1),
+    CHECK (tauxZone >= 1 AND tauxZone <= 2),
     CHECK (catZone IN ('orchestre', 'balcon', 'poulailler'))
 );
 
@@ -34,16 +32,20 @@ CREATE TABLE Zone (
 );
 
 CREATE TABLE Place (
-    noRang          INTEGER         NOT NULL,
     noPlace         INTEGER         NOT NULL,
+    noRang          INTEGER         NOT NULL,
     noZone          INTEGER         NOT NULL,
-    CONSTRAINT pk_place_noRang_noPlace PRIMARY KEY (noRang, noPlace)
+    CONSTRAINT pk_place_noRang_noPlace PRIMARY KEY (noRang, noPlace),
+    FOREIGN KEY (noZone) REFERENCES Zone(noZone),
+    CHECK (noPlace > 0),
+    CHECK (noRang > 0)
 );
 
 CREATE TABLE Reduction (
     typeReduc       VARCHAR(32)     NOT NULL        UNIQUE,
     tauxReduc       DECIMAL(4, 2)   NOT NULL,
-    CHECK (typeReduc IN ('adhérent', 'senior', 'étudiant', 'sans reduction'))
+    CHECK (typeReduc IN ('adherent', 'senior', 'militaire', 'etudiant', 'scolaire', 'sans reduction')),
+    CHECK (tauxReduc >= 0 AND tauxReduc <= 1)
 );
 
 CREATE TABLE Vente (
@@ -55,12 +57,11 @@ CREATE TABLE Vente (
 );
 
 CREATE TABLE Ticket (
-    noTicket        INTEGER         NOT NULL,
+    noTicket        INTEGER         PRIMARY KEY,
     noAchat         INTEGER         NOT NULL,
     noRep           INTEGER         NOT NULL,
     noRang          INTEGER         NOT NULL,
     noPlace         INTEGER         NOT NULL,
-    CONSTRAINT pk_ticket_noTicket_noAchat PRIMARY KEY (noTicket, noAchat),
     FOREIGN KEY (noAchat) REFERENCES Vente(noAchat),
     FOREIGN KEY (noRep) REFERENCES Representation(noRep),
     FOREIGN KEY (noRang) REFERENCES Place(noRang),
@@ -69,10 +70,18 @@ CREATE TABLE Ticket (
 
 
 
+
+
 -- VIEWS
 
-
-
 -- TODO 1.4 : Créer une vue LesRepresentations ajoutant le nombre de places disponible et d'autres possibles attributs calculés.
+CREATE VIEW LesRepresentations AS
+    SELECT nomSpec, dateRep, (500 - count(noTicket)) AS nbPlaceDisponibles, count(noTicket) AS nbPlacesOccupees
+    FROM Spectacle
+        LEFT JOIN Representation USING (noSpec)
+        LEFT JOIN Ticket USING (noRep)
+    GROUP BY nomSpec, dateRep;
+
+
 -- TODO 1.5 : Créer une vue  avec le noDos et le montant total correspondant.
 -- TODO 3.3 : Ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>896</width>
-    <height>857</height>
+    <height>754</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -476,41 +476,6 @@
      </layout>
     </item>
     <item>
-     <widget class="QLabel" name="label_8">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>1.3 Créer les tables manquantes et modifier l'affichage (Consultation BD V1)</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_7">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>1.4 Créer une vue LesRepresentations ajoutant le nombre de places disponible. Modifier l'affichage (Consultation BD V1)</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QLabel" name="label_9">
       <property name="font">
        <font>
@@ -770,7 +735,7 @@
      <x>0</x>
      <y>0</y>
      <width>896</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">
