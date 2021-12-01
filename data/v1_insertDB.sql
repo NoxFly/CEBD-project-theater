@@ -1,4 +1,4 @@
--- TRANSFERT FROM V0 TO V1
+---------------------- TRANSFERT FROM V0 TO V1
 
 INSERT INTO Spectacle(nomSpec, prixBaseSpec)
     SELECT DISTINCT nomSpec, prixBaseSpec
@@ -20,6 +20,9 @@ INSERT INTO Place(noPlace, noRang, noZone)
     SELECT noPlace, noRang, noZone
     FROM V0_LesPlaces;
 
+
+-- V1
+
 ---------------------- REDUCTION
 INSERT INTO Reduction(typeReduc, tauxReduc) VALUES
     ('adherent', 0.2),
@@ -29,14 +32,14 @@ INSERT INTO Reduction(typeReduc, tauxReduc) VALUES
     ('scolaire', 0.5),
     ('sans reduction', 0);
 
----------------------- VENTE // need reduction
+---------------------- VENTE
 INSERT INTO Vente(dateAchat) VALUES
     ('20/12/2019 18:53'),
     ('19/12/2019 12:02'),
     ('15/12/2019 17:05'),
     ('13/12/2019 16:45');
 
----------------------- TICKET // need vente + place + representation
+---------------------- TICKET // need vente + place + representation + reduction
 INSERT INTO Ticket(noAchat, noRep, noRang, noPlace, prixTotal, typeReduc) VALUES
     (1, 1, 1, 1, 37.5, 'etudiant'),
     (1, 1, 1, 2, 37.5, 'etudiant'),

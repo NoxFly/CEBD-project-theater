@@ -3,9 +3,9 @@ clé : noSpec
 <n, m, p> le spectacle au numéro n, qui porte le nom m, au prix de base (sans réduction) p
 
 
-Representation(noRepresentation*, dateRep, promotion, noSpec)
+Representation(noRepresentation*, noSpec, dateRep, promotion)
 clé : noRepresentation
-<nR, d, p, n> le numéro de la representation nR, représente le spéctacle numéro n, a la date d, avec une promotion de p
+<nR, n, d, p> le numéro de la representation nR, représente le spéctacle numéro n, a la date d, avec une promotion de p
 
 Representation[noSpec] ⊆ Spectacle[noSpec]
 
@@ -13,47 +13,39 @@ Representation[noSpec] ⊆ Spectacle[noSpec]
 Salle() ---- inutile pas d'information on a qu'une seul salle !
 
 
-Zone(noZone*, catZone*)
-clé : noZone, catZone
+Categorie(catZone*, tauxZone)
+clé : catZone
+<c, t> une categorie a pour nom c et un taux de t compris entre 1 et 2
+
+
+Zone(noZone*, catZone)
+clé : noZone
 <nZ, c> la zone numéro nZ a pour nom de catégorie c
 
 Zone[catZone] ⊆ Categorie[catZone]
 
 
-Categorie(catZone*, tauxZone)
-clé : catZone
-<c, t> une categorie a pour nom c et un taux de t
-
-
-Place(noRang*, noPlace*, noZone)
-<r, p, z> la place au rang r et au numéro p située dans la zone numéro z
+Place(noPlace*, noRang*, noZone)
+<p, r, z> la place au rang r et au numéro p située dans la zone numéro z
 
 Place[noZone] ⊆ Zone[noZone]
 
 
-Ticket(noTicket*, noAchat*, noRepresentation, noRang, noPlace)
-clé : noTicket, noAchat
-<nT, nA, nRe, nRa, nP> le ticket de numéro nT lié à son achat nA pour la reprensation nRe à la place nP au rang nRa
-
---noRepresentation
---noRang
---noPlace
-
-Ticket[noAchat] ⊆ Vente[noAchat]
-
-Ticket[noRepresentation] ⊆ Representation[noRepresentation]
-
-Ticket[noRang] ⊆ Place[noRang]
-Ticket[noPlace] ⊆ Place[noPlace]
-
-
-Vente(noAchat*, dateAchat, prixGlobal, typeReduction)
-clé : noAchat
-<n, p, t> la vente numéro n d'un ticket acheté à la date d, au prix global p, avec pour type de réduction t
-
-Vente[typeReduction] ⊆ Reduction[typeReduction]
-
-
 Reduction(typeReduction*, tauxDeReduction)
 clé : typeReduction
-<tY, tA> une réduction a pour type tY avec un taux tA
+<tY, tA> une réduction de facteur tA pour une population tY
+
+
+Vente(noAchat*, dateAchat)
+clé : noAchat
+<n, d> la vente numéro n d'un ou plusieurs tickets acheté(s) à la date d
+
+Ticket(noTicket*, noAchat, noRepresentation, noRang, noPlace, prixTotal, typeReduc)
+clé : noTicket
+<nT, nA, nRe, nRa, nP, p, r> le ticket numéro nT lié à son achat nA pour la reprensation nRe à la place nP au rang nRa acheté au prix p avec la reduction associée r
+
+Ticket[noAchat] ⊆ Vente[noAchat]
+Ticket[noRepresentation] ⊆ Representation[noRepresentation]
+Ticket[typeReduction] ⊆ Reduction[typeReduction]
+Ticket[noRang] ⊆ Place[noRang]
+Ticket[noPlace] ⊆ Place[noPlace]
