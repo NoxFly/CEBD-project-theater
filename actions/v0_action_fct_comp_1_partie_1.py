@@ -25,7 +25,7 @@ class AppFctComp1Partie1(QDialog):
         val = self.ui.comboBox_categorie.currentText()
 
         if not val or val == "Choisir une catégorie":
-            self.ui.table_fct_comp_1.clearContents()
+            self.ui.table_fct_comp_1.setRowCount(0)
             display.refreshLabel(self.ui.label_fct_comp_1, "Veuillez indiquer un nom de catégorie")
         
         else:
@@ -36,7 +36,7 @@ class AppFctComp1Partie1(QDialog):
                 )
                 
             except Exception as e:
-                self.ui.table_fct_comp_1.clearContents()
+                self.ui.table_fct_comp_1.setRowCount(0)
                 display.refreshLabel(self.ui.label_fct_comp_1, "Impossible d'afficher les résultats : " + repr(e))
             
             else:

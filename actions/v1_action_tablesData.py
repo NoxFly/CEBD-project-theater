@@ -62,7 +62,7 @@ class AppTablesDataV1(QDialog):
             "SELECT noAchat, dateAchat FROM Vente")
             
         self.refreshTable(self.ui.label_lesrepresentations, self.ui.tableLesRepresentations,
-            "SELECT nomSpec, dateRep, nbPlaceDisponibles, nbPlacesOccupees FROM LesRepresentations")
+            "SELECT nomSpec, noRep, dateRep, nbPlaceDisponibles, nbPlacesOccupees FROM LesRepresentations")
 
         self.refreshTable(self.ui.label_lesventes, self.ui.tableLesVentes,
             "SELECT noAchat, montantTotal FROM LesVentes")

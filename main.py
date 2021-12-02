@@ -11,6 +11,8 @@ from actions.v0_action_fct_fournie_1_partie_0 import AppFctFournie1Partie0
 from actions.v0_action_fct_fournie_2_partie_0 import AppFctFournie2Partie0
 from actions.v0_action_fct_comp_1_partie_1 import AppFctComp1Partie1
 from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
+from actions.action_add_fct_1_partie_2 import AppAddFct1
+from actions.action_add_fct_2_partie_2 import AppAddFct2
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
@@ -28,6 +30,8 @@ class AppWindow(QMainWindow):
     fct_fournie_2_dialog = None
     fct_comp_1_dialog = None
     fct_comp_2_dialog = None
+    fct_add_1_dialog = None
+    fct_add_2_dialog = None
 
     # Constructeur
     def __init__(self):
@@ -163,6 +167,20 @@ class AppWindow(QMainWindow):
     ####################################################################################################################
 
     # TODO 2 : ajouter la définition des méthodes déclenchées lors des clicks sur les boutons de la partie 2
+    def open_fct_add_1(self):
+        if self.fct_add_1_dialog is not None:
+            self.fct_add_1_dialog.close()
+
+        self.fct_add_1_dialog = AppAddFct1(self.data)
+        self.fct_add_1_dialog.show()
+
+    def open_fct_add_2(self):
+        if self.fct_add_2_dialog is not None:
+            self.fct_add_2_dialog.close()
+
+        self.fct_add_2_dialog = AppAddFct2(self.data)
+        self.fct_add_2_dialog.show()
+
     # TODO 3 : ajouter la définition des méthodes déclenchées lors des clicks sur les boutons de la partie 3
 
     # En cas de clic sur le bouton de visualisation des données
@@ -230,6 +248,10 @@ class AppWindow(QMainWindow):
             self.fct_comp_1_dialog.close()
         if (self.fct_comp_2_dialog is not None):
             self.fct_comp_2_dialog.close()
+        if (self.fct_add_1_dialog is not None):
+            self.fct_add_1_dialog.close()
+        if (self.fct_add_2_dialog is not None):
+            self.fct_add_2_dialog.close()
 
         # On ferme proprement la base de données
         self.data.close()

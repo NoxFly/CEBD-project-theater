@@ -75,7 +75,7 @@ CREATE TABLE Ticket (
 
 -- TODO 1.4 : Créer une vue LesRepresentations ajoutant le nombre de places disponible et d'autres possibles attributs calculés.
 CREATE VIEW LesRepresentations AS
-    SELECT nomSpec, dateRep, (500 - COUNT(noTicket)) AS nbPlaceDisponibles, COUNT(noTicket) AS nbPlacesOccupees
+    SELECT nomSpec, noRep, dateRep, (500 - COUNT(noTicket)) AS nbPlaceDisponibles, COUNT(noTicket) AS nbPlacesOccupees
     FROM Spectacle
         LEFT JOIN Representation USING(noSpec)
         LEFT JOIN Ticket USING(noRep)

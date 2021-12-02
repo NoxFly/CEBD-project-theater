@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>specReserves</class>
+ <widget class="QDialog" name="specReserves">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>577</width>
+    <height>408</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Places des représentations de chaque spectacle</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>561</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableWidget" name="tableSpecRep">
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>139</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+        </attribute>
+      <column>
+       <property name="text">
+        <string>noRep</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dateRep</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>promoRep</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>nbPlacesReservees</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QComboBox" name="comboBox_spec">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>10</y>
+     <width>441</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Sélectionner un spectacle</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="prixBaseSpec">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>16</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0 €</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>482</x>
+     <y>16</y>
+     <width>55</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Prix :</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

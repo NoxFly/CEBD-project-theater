@@ -763,7 +763,7 @@
        <item>
         <widget class="QTableWidget" name="tableLesRepresentations">
          <attribute name="horizontalHeaderDefaultSectionSize">
-          <number>255</number>
+          <number>190</number>
          </attribute>
          <attribute name="horizontalHeaderMinimumSectionSize">
           <number>50</number>
@@ -777,6 +777,11 @@
          <column>
           <property name="text">
            <string>nomSpec</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>noRep</string>
           </property>
          </column>
          <column>
