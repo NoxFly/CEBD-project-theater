@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>gererRep</class>
+ <widget class="QDialog" name="gererRep">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>639</width>
+    <height>399</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gérer les représentations</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>65</y>
+     <width>341</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableWidget" name="tableRep"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QComboBox" name="comboBox_spectacle">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>15</y>
+     <width>341</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Sélectionner un spectacle</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="addRep">
+   <property name="geometry">
+    <rect>
+     <x>525</x>
+     <y>355</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Créer</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="doubleSpinBox_promoRep">
+   <property name="geometry">
+    <rect>
+     <x>535</x>
+     <y>275</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDateTimeEdit" name="dateTimeEdit_dateRep">
+   <property name="geometry">
+    <rect>
+     <x>475</x>
+     <y>315</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_promoRep">
+   <property name="geometry">
+    <rect>
+     <x>371</x>
+     <y>275</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Promotion :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_dateRep">
+   <property name="geometry">
+    <rect>
+     <x>371</x>
+     <y>315</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Date / heure :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_representation">
+   <property name="geometry">
+    <rect>
+     <x>371</x>
+     <y>222</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Myanmar Text</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Ajouter une représentation&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_spectacle">
+   <property name="geometry">
+    <rect>
+     <x>371</x>
+     <y>52</y>
+     <width>221</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Myanmar Text</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Ajouter un spectacle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="doubleSpinBox_prixSpec">
+   <property name="geometry">
+    <rect>
+     <x>531</x>
+     <y>152</y>
+     <width>91</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_nomSpec">
+   <property name="geometry">
+    <rect>
+     <x>433</x>
+     <y>112</y>
+     <width>191</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_nomSpec">
+   <property name="geometry">
+    <rect>
+     <x>371</x>
+     <y>112</y>
+     <width>55</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nom :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_prixSpec">
+   <property name="geometry">
+    <rect>
+     <x>371</x>
+     <y>152</y>
+     <width>55</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Prix :</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addSpec">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>190</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Créer</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

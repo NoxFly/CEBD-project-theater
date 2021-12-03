@@ -277,6 +277,8 @@ class Ui_MainWindow(object):
         self.pushButton_16.clicked.connect(MainWindow.openDataV1) # type: ignore
         self.pushButton_10.clicked.connect(MainWindow.open_fct_add_1) # type: ignore
         self.pushButton_11.clicked.connect(MainWindow.open_fct_add_2) # type: ignore
+        self.pushButton_13.clicked.connect(MainWindow.open_fct_imp_1) # type: ignore
+        self.pushButton_14.clicked.connect(MainWindow.open_fct_imp_2) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
