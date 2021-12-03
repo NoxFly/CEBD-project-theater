@@ -111,7 +111,64 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QTableWidget" name="tableTicketToAdd"/>
+     <widget class="QTableWidget" name="tableTicketsToAdd">
+      <attribute name="horizontalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>70</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>noAchat</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>noTicket</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>noRep</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dateRep</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>nomSpec</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>noZone</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>noRang</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>noPlace</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>reduction</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>prix</string>
+       </property>
+      </column>
+     </widget>
     </item>
    </layout>
   </widget>
