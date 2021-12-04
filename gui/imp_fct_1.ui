@@ -24,7 +24,39 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTableWidget" name="tableRep"/>
+     <widget class="QTableWidget" name="tableRep">
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>60</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>noRep</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>date</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>promo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dispo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>prises</string>
+       </property>
+      </column>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -194,16 +226,6 @@
       <string>Nom :</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox_promoRep">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>240</y>
-       <width>81</width>
-       <height>31</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_promoRep">
      <property name="geometry">
       <rect>
@@ -214,7 +236,49 @@
       </rect>
      </property>
      <property name="text">
-      <string>Promotion :</string>
+      <string>Promotion (%) :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_specAddResult">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>201</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_resAddResult">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>320</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="doubleSpinBox_promoRep">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>240</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -278,8 +342,8 @@
     <widget class="QPushButton" name="pushButton_supprRep">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>300</y>
+       <x>200</x>
+       <y>260</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -291,8 +355,8 @@
     <widget class="QComboBox" name="comboBox_supprRep">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>250</y>
+       <x>20</x>
+       <y>260</y>
        <width>171</width>
        <height>31</height>
       </rect>
@@ -303,30 +367,52 @@
       </property>
      </item>
     </widget>
-    <widget class="QLabel" name="label_supprSpec">
+    <widget class="QLabel" name="label_specDel">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>4</x>
        <y>65</y>
-       <width>51</width>
+       <width>321</width>
        <height>21</height>
       </rect>
      </property>
      <property name="text">
-      <string>Supprimer</string>
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_specDelResult">
      <property name="geometry">
       <rect>
-       <x>134</x>
-       <y>65</y>
-       <width>121</width>
-       <height>21</height>
+       <x>-4</x>
+       <y>150</y>
+       <width>331</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>_________________ ?</string>
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_resDelResult">
+     <property name="geometry">
+      <rect>
+       <x>-3</x>
+       <y>318</y>
+       <width>331</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
