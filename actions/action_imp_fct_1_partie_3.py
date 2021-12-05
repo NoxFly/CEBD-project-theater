@@ -73,7 +73,6 @@ class AppImpFct1(QDialog):
         if not selectedOption or selectedOption == "Sélectionner un spectacle":
             self.ui.tableRep.setRowCount(0)
             self.ui.tabActions.setTabEnabled(1, False)
-            self.ui.addSpec.setEnabled(False)
             self.ui.addRep.setEnabled(False)
 
         else:
@@ -142,6 +141,8 @@ class AppImpFct1(QDialog):
 
                     for i in range(len(result)):
                         self.ui.tableRep.setItem(rowPosition , i, QTableWidgetItem(str(result[i])))
+
+                    self.ui.comboBox_supprRep.addItem(dateRep)
 
                     self.ui.label_resAddResult.setText("Représentation créée")
 
