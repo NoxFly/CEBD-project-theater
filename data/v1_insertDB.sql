@@ -25,12 +25,12 @@ INSERT INTO Place(noPlace, noRang, noZone)
 
 ---------------------- REDUCTION
 INSERT INTO Reduction(typeReduc, tauxReduc) VALUES
+    ('sans reduction', 0),
     ('adherent', 0.2),
-    ('senior', 0.3),
-    ('militaire', 0.3),
-    ('etudiant', 0.5),
     ('scolaire', 0.5),
-    ('sans reduction', 0);
+    ('etudiant', 0.5),
+    ('militaire', 0.3),
+    ('senior', 0.3);
 
 ---------------------- VENTE
 INSERT INTO Vente(dateAchat) VALUES

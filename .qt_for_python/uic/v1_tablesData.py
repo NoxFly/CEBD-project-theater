@@ -486,7 +486,7 @@ class Ui_tablesData(object):
         item = self.tableLesRepresentations.horizontalHeaderItem(2)
         item.setText(_translate("tablesData", "dateRep"))
         item = self.tableLesRepresentations.horizontalHeaderItem(3)
-        item.setText(_translate("tablesData", "nbPlaceDisponibles"))
+        item.setText(_translate("tablesData", "nbPlacesDisponibles"))
         item = self.tableLesRepresentations.horizontalHeaderItem(4)
         item.setText(_translate("tablesData", "nbPlacesOccupees"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabLesRepresentations), _translate("tablesData", "Vue : LesRepresentations"))

@@ -1,4 +1,5 @@
 -- TABLES
+PRAGMA foreign_keys = true;
 
 -- TODO 1.3 : Créer les tables manquantes et modifier celles ci-dessous
 
@@ -44,7 +45,7 @@ CREATE TABLE Place (
 CREATE TABLE Reduction (
     typeReduc       VARCHAR(32)     NOT NULL        UNIQUE,
     tauxReduc       DECIMAL(4, 2)   NOT NULL,
-    CHECK (typeReduc IN ('adherent', 'senior', 'militaire', 'etudiant', 'scolaire', 'sans reduction')),
+    CHECK (typeReduc IN ('sans reduction', 'adherent', 'scolaire', 'etudiant', 'militaire', 'senior')),
     CHECK (tauxReduc >= 0 AND tauxReduc <= 1)
 );
 
@@ -74,12 +75,21 @@ CREATE TABLE Ticket (
 -- VIEWS
 
 -- TODO 1.4 : Créer une vue LesRepresentations ajoutant le nombre de places disponible et d'autres possibles attributs calculés.
+
 CREATE VIEW LesRepresentations AS
-    SELECT nomSpec, noRep, dateRep, promoRep, (500 - COUNT(noTicket)) AS nbPlaceDisponibles, COUNT(noTicket) AS nbPlacesOccupees
+    WITH places AS (
+        SELECT COUNT(noPlace) AS totalNbPlaces
+            FROM Place
+    )
+    SELECT nomSpec, noRep, dateRep, promoRep, (totalNbPlaces - COUNT(noTicket)) AS nbPlacesDisponibles, COUNT(noTicket) AS nbPlacesOccupees
     FROM Spectacle
         LEFT JOIN Representation USING(noSpec)
         LEFT JOIN Ticket USING(noRep)
-    WHERE noSpec IN (SELECT noSpec FROM Representation)
+        LEFT JOIN places
+    WHERE noSpec IN (
+        SELECT noSpec
+            FROM Representation
+    )
     GROUP BY nomSpec, dateRep;
 
 

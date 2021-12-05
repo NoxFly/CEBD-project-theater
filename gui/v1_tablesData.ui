@@ -410,7 +410,7 @@
        <item>
         <widget class="QTableWidget" name="tablePlace">
          <attribute name="horizontalHeaderDefaultSectionSize">
-          <number>336</number>
+          <number>334</number>
          </attribute>
          <attribute name="horizontalHeaderMinimumSectionSize">
           <number>50</number>
@@ -791,7 +791,7 @@
          </column>
          <column>
           <property name="text">
-           <string>nbPlaceDisponibles</string>
+           <string>nbPlacesDisponibles</string>
           </property>
          </column>
          <column>

@@ -85,7 +85,7 @@ class AppImpFct1(QDialog):
             self.ui.label_specDel.setText(f"Supprimer \"{selectedOption}\" ?")
 
             try:
-                result = self.data.cursor().execute("SELECT noRep, dateRep, promoRep, nbPlaceDisponibles, nbPlacesOccupees FROM LesRepresentations WHERE nomSpec = ? ORDER BY noRep", [selectedOption])
+                result = self.data.cursor().execute("SELECT noRep, dateRep, promoRep, nbPlacesDisponibles, nbPlacesOccupees FROM LesRepresentations WHERE nomSpec = ? ORDER BY noRep", [selectedOption])
 
             except Exception as e:
                 print("Failed to recover representations :", e)
@@ -122,7 +122,7 @@ class AppImpFct1(QDialog):
                     self.data.cursor().execute("INSERT INTO Representation(noSpec, dateRep, promoRep) VALUES(?, ?, ?)", [noSpec, dateRep, promoRep])
                     # retrieve the entiere inserted row so we also have its id
                     result = self.data.cursor().execute(
-                        """SELECT noRep, dateRep, promoRep, nbPlaceDisponibles, nbPlacesOccupees
+                        """SELECT noRep, dateRep, promoRep, nbPlacesDisponibles, nbPlacesOccupees
                             FROM LesRepresentations
                             WHERE nomSpec = ? AND dateRep = ?""",
                         [self.ui.comboBox_spectacle.currentText(), dateRep]
