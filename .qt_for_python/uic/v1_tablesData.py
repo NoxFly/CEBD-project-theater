@@ -192,7 +192,7 @@ class Ui_tablesData(object):
         self.tablePlace.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tablePlace.setHorizontalHeaderItem(2, item)
-        self.tablePlace.horizontalHeader().setDefaultSectionSize(336)
+        self.tablePlace.horizontalHeader().setDefaultSectionSize(334)
         self.tablePlace.horizontalHeader().setMinimumSectionSize(50)
         self.tablePlace.horizontalHeader().setStretchLastSection(True)
         self.tablePlace.verticalHeader().setVisible(False)

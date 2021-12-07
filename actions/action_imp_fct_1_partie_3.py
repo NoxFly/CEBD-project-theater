@@ -111,12 +111,10 @@ class AppImpFct1(QDialog):
 
         # first, verify that we'll not add a rep on the same date of existing one, for any spec
         # because there's only one room
-        # /!\ IMPORTANT : we cannot use the WHERE clause, because SQLITE doesn't have a time comparison
-        # (or it's too expensive to do)
-        allDates = [row[0] for row in self.data.cursor().execute("SELECT dateRep FROM Representation").fetchall()]
-
+        res = self.data.cursor().execute("SELECT dateRep FROM Representation WHERE dateRep = ?", [dateRep]).fetchone()
+        
         if noSpec:
-            if dateRep not in allDates:
+            if not (res and len(res) > 0 and res[0] == dateRep):
                 try:
                     self.data.cursor().execute("INSERT INTO Representation(noSpec, dateRep, promoRep) VALUES(?, ?, ?)", [noSpec, dateRep, promoRep])
                     # retrieve the entiere inserted row so we also have its id
@@ -213,7 +211,10 @@ class AppImpFct1(QDialog):
 
         if noSpec:
             try:
-                self.data.cursor().execute("DELETE FROM Representation WHERE noSpec = ? AND dateRep = ?", [noSpec, dateRep])
+                resRep = self.data.cursor().execute("SELECT noRep FROM Representation WHERE noSpec = ? AND dateRep = ?", [noSpec, dateRep]).fetchone()
+
+                if resRep and len(resRep) > 0:
+                    self.data.cursor().execute("DELETE FROM Representation WHERE noRep = ?", [resRep[0]])
 
             except Exception as e:
                 self.ui.label_resDelResult.setText("Une erreur est survenue")

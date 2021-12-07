@@ -16,7 +16,7 @@ CREATE TABLE Representation (
     dateRep         DATE            NOT NULL,
     promoRep        DECIMAL(4, 2)   NOT NULL        DEFAULT 0,
     CHECK (promoRep >= 0 AND promoRep <= 1),
-    FOREIGN KEY (noSpec) REFERENCES Spectacle(noSpec)
+    FOREIGN KEY (noSpec) REFERENCES Spectacle(noSpec) ON DELETE CASCADE
 );
 
 CREATE TABLE Categorie (
@@ -29,7 +29,7 @@ CREATE TABLE Categorie (
 CREATE TABLE Zone (
     noZone          INTEGER         PRIMARY KEY,
     catZone         VARCHAR(32)     NOT NULL        UNIQUE,
-    FOREIGN KEY (catZone) REFERENCES Categorie(catZone)
+    FOREIGN KEY (catZone) REFERENCES Categorie(catZone) ON DELETE CASCADE
 );
 
 CREATE TABLE Place (
@@ -37,7 +37,7 @@ CREATE TABLE Place (
     noRang          INTEGER         NOT NULL,
     noZone          INTEGER         NOT NULL,
     CONSTRAINT pk_place_noRang_noPlace PRIMARY KEY (noRang, noPlace),
-    FOREIGN KEY (noZone) REFERENCES Zone(noZone),
+    FOREIGN KEY (noZone) REFERENCES Zone(noZone) ON DELETE CASCADE,
     CHECK (noPlace > 0),
     CHECK (noRang > 0)
 );
@@ -62,10 +62,10 @@ CREATE TABLE Ticket (
     noPlace         INTEGER         NOT NULL,
     prixTotal       DECIMAL(6, 2)   NOT NULL,
     typeReduc       VARCHAR(32)     NOT NULL,
-    FOREIGN KEY (noAchat) REFERENCES Vente(noAchat),
-    FOREIGN KEY (noRep) REFERENCES Representation(noRep),
-    FOREIGN KEY (noPlace, noRang) REFERENCES Place(noPlace, noRang),
-    FOREIGN KEY (typeReduc) REFERENCES Reduction(typeReduc)
+    FOREIGN KEY (noAchat) REFERENCES Vente(noAchat) ON DELETE CASCADE,
+    FOREIGN KEY (noRep) REFERENCES Representation(noRep) ON DELETE CASCADE,
+    FOREIGN KEY (noPlace, noRang) REFERENCES Place(noPlace, noRang) ON DELETE CASCADE,
+    FOREIGN KEY (typeReduc) REFERENCES Reduction(typeReduc) ON DELETE CASCADE
 );
 
 
