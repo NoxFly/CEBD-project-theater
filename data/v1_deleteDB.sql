@@ -2,6 +2,10 @@
 
 -- dans l'ordre suivant les foreign key
 
+-- les triggers
+DROP TRIGGER IF EXISTS trigger_repCreation;
+DROP TRIGGER IF EXISTS trigger_venteCreation;
+
 -- d'abord les vues
 DROP VIEW IF EXISTS LesRepresentations;
 DROP VIEW IF EXISTS LesVentes;

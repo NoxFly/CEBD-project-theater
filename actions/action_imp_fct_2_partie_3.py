@@ -60,6 +60,7 @@ class AppImpFct2(QDialog):
             self.enableActions(False)
             self.ui.tableTicketsRep.horizontalHeader().hide()
             self.currentRep = None
+            self.ui.tableTicketsRep.setRowCount(0)
             self.greyText(self.ui.label_aucunSpec, 'Aucune représentation sélectionnée')
             self.freePlaces = []
 
@@ -79,6 +80,7 @@ class AppImpFct2(QDialog):
                 result = self.data.cursor().execute(
                     """SELECT noAchat, noTicket, noRang, noPlace, typeReduc, prixTotal
                         FROM Ticket
+                            LEFT JOIN Vente USING(noAchat)
                         WHERE noRep = ?""", [self.currentRep['noRep']])
 
             except Exception as e:
@@ -262,6 +264,10 @@ class AppImpFct2(QDialog):
 
                 self.ui.tableTicketsRep.removeRow(rowNumber)
 
+                if self.ui.tableTicketsRep.rowCount() == 0:
+                    self.ui.tableTicketsRep.horizontalHeader().hide()
+                    self.greyText(self.ui.label_aucunSpec, 'Aucune réservation trouvée')
+
                 self.updateComboZone()
                 self.enableForm(True)
                 self.ui.pushButton_addTicket.setEnabled(True)
@@ -372,7 +378,7 @@ class AppImpFct2(QDialog):
 
             now = QDateTime.currentDateTime().toString("dd/MM/yyyy hh:mm")
             
-            self.data.cursor().execute("INSERT INTO Vente(dateAchat) VALUES(?)", [now])
+            self.data.cursor().execute("INSERT INTO Vente(dateAchat, noRep) VALUES(?, ?)", [now, self.currentRep['noRep']])
             noAchat = self.data.cursor().execute("SELECT last_insert_rowid()").fetchone()[0]
 
             T = self.ui.tableTicketsToAdd
@@ -397,7 +403,6 @@ class AppImpFct2(QDialog):
 
                 ticket = [
                     noAchat,
-                    self.currentRep['noRep'],
                     int(ticket['noRang']),
                     int(ticket['noPlace']),
                     float(ticket['prix']),
@@ -406,8 +411,8 @@ class AppImpFct2(QDialog):
 
                 # step 3.2 : db req
                 self.data.cursor().execute(
-                    """INSERT INTO Ticket(noAchat, noRep, noRang, noPlace, prixTotal, typeReduc)
-                        VALUES(?, ?, ?, ?, ?, ?)""", ticket)
+                    """INSERT INTO Ticket(noAchat, noRang, noPlace, prixTotal, typeReduc)
+                        VALUES(?, ?, ?, ?, ?)""", ticket)
 
 
         except Exception as e:
@@ -460,6 +465,7 @@ class AppImpFct2(QDialog):
             ZonesPleines AS (
                 SELECT noPlace, noRang
                     FROM Ticket
+                        LEFT JOIN Vente USING(noAchat)
                     WHERE noRep = ?
             ),
             NumeroZones AS (
@@ -482,8 +488,9 @@ class AppImpFct2(QDialog):
     def getFreePlacesOfRep(self, noRep: int=-1) -> list:
         req = """WITH PlacesPrises AS (
                     SELECT noPlace, noRang
-                    FROM Ticket
-                    WHERE noRep = ?
+                        FROM Ticket
+                            LEFT JOIN Vente USING(noAchat)
+                        WHERE noRep = ?
                 )
                 SELECT noPlace, noRang, noZone
                     FROM Place

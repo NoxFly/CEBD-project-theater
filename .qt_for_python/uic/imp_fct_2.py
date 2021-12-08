@@ -139,7 +139,7 @@ class Ui_GererLesRep(object):
         self.label_prix.setGeometry(QtCore.QRect(420, 275, 61, 31))
         self.label_prix.setObjectName("label_prix")
         self.label_promoRep = QtWidgets.QLabel(GererLesRep)
-        self.label_promoRep.setGeometry(QtCore.QRect(420, 305, 121, 31))
+        self.label_promoRep.setGeometry(QtCore.QRect(420, 305, 141, 31))
         self.label_promoRep.setObjectName("label_promoRep")
         self.label_montant = QtWidgets.QLabel(GererLesRep)
         self.label_montant.setGeometry(QtCore.QRect(550, 275, 111, 31))

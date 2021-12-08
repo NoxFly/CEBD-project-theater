@@ -5,10 +5,15 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5 import uic
 
 
-req = """SELECT noRep, dateRep, promoRep, COUNT(noTicket) AS nbPlacesReservees, prixBaseSpec
+req = """WITH tickets AS (
+    SELECT noTicket, noRep
+        FROM Ticket
+            LEFT JOIN Vente USING(noAchat)
+)
+SELECT noRep, dateRep, promoRep, COUNT(noTicket) AS nbPlacesReservees, prixBaseSpec
     FROM Representation
-    LEFT JOIN Ticket USING(noRep)
-    JOIN Spectacle USING(noSpec)
+        LEFT JOIN tickets USING(noRep)
+        JOIN Spectacle USING(noSpec)
     WHERE nomSpec = ?
     GROUP BY noRep, dateRep, promoRep"""
 

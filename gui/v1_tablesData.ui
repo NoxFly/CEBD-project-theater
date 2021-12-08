@@ -578,7 +578,7 @@
        <item>
         <widget class="QTableWidget" name="tableTicket">
          <attribute name="horizontalHeaderDefaultSectionSize">
-          <number>138</number>
+          <number>155</number>
          </attribute>
          <attribute name="horizontalHeaderMinimumSectionSize">
           <number>50</number>
@@ -597,11 +597,6 @@
          <column>
           <property name="text">
            <string>noAchat</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>noRep</string>
           </property>
          </column>
          <column>
@@ -683,7 +678,7 @@
        <item>
         <widget class="QTableWidget" name="tableVente">
          <attribute name="horizontalHeaderDefaultSectionSize">
-          <number>510</number>
+          <number>300</number>
          </attribute>
          <attribute name="horizontalHeaderMinimumSectionSize">
           <number>50</number>
@@ -702,6 +697,11 @@
          <column>
           <property name="text">
            <string>dateAchat</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>noRep</string>
           </property>
          </column>
         </widget>

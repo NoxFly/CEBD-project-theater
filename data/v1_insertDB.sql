@@ -33,17 +33,17 @@ INSERT INTO Reduction(typeReduc, tauxReduc) VALUES
     ('senior', 0.3);
 
 ---------------------- VENTE
-INSERT INTO Vente(dateAchat) VALUES
-    ('20/12/2019 18:53'),
-    ('19/12/2019 12:02'),
-    ('15/12/2019 17:05'),
-    ('13/12/2019 16:45');
+INSERT INTO Vente(dateAchat, noRep) VALUES
+    ('13/12/2022 16:45', 2),
+    ('15/12/2022 17:05', 2),
+    ('19/12/2022 12:02', 1),
+    ('20/12/2022 18:53', 1);
 
 ---------------------- TICKET // need vente + place + representation + reduction
-INSERT INTO Ticket(noAchat, noRep, noRang, noPlace, prixTotal, typeReduc) VALUES
-    (1, 1, 1, 1, 37.5, 'etudiant'),
-    (1, 1, 1, 2, 37.5, 'etudiant'),
-    (1, 1, 1, 3, 37.5, 'etudiant'),
-    (2, 1, 3, 4, 26.25, 'senior'),
-    (3, 2, 3, 5, 20, 'sans reduction'),
-    (4, 2, 2, 1, 32, 'adherent');
+INSERT INTO Ticket(noAchat, noRang, noPlace, prixTotal, typeReduc) VALUES
+    (1, 1, 1, 37.5, 'etudiant'),
+    (1, 1, 2, 37.5, 'etudiant'),
+    (1, 1, 3, 37.5, 'etudiant'),
+    (2, 3, 4, 26.25, 'senior'),
+    (3, 3, 5, 20, 'sans reduction'),
+    (4, 2, 1, 32, 'adherent');
