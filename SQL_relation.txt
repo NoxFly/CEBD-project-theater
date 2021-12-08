@@ -7,8 +7,18 @@ noSpec,dateRep -> promoRep // "Pour certaines repr ́esentations, le prix des pl
 
 dateRep -> noSpec // "La seule salle" (1 seul spéctacle instant T)
 
+
 prixBaseSpec,promoRep -> prixRep // prixRep = prixBaseSpec * promoRep
 
+-----------------------------------------
+BCNF :
+LesRepresentations (ma version) :
+dateRep -> noSpec // "La seule salle" (1 seul spéctacle instant T)
+dateRep -> promoRep // "La seule salle" (1 seul spéctacle instant T) && "Pour certaines repr ́esentations, le prix des places fait l’objet d’une promotion"
+
+LesSpectacle (ma version) :
+noSpec -> nomSpec // " Un spectacle est identifi ́e par un num ́ero et on connaˆıt le nom et le prix de base."
+noSpec -> prixBaseSpec
 -----------------------------------------
 
 LesPlaces:
@@ -19,3 +29,14 @@ noRang, place -> noZone // "zones num ́erot ́ees, regroupant chacune un ensemb
 // "Une place est identifi ́ee par un num ́ero de rang (unique par salle)"
 
 catZone -> tauxZone // "Un taux par rapport au prix de base est associ ́e `a chaque cat ́egorie"
+
+-----------------------------------------
+
+BCNF :
+Lesplaces (ma version) :
+noRang, place -> noZone // "zones num ́erot ́ees, regroupant chacune un ensemble de places"
+// "Une place est identifi ́ee par un num ́ero de rang (unique par salle)"
+
+LesZones (ma version) :
+noZone -> catZone // "Une zone est associ ́ee `a une seule cat ́egorie tarifair"
+noZone -> tauxZone // "Une zone est associ ́ee `a une seule cat ́egorie tarifair" && "Un taux par rapport au prix de base est associ ́e `a chaque cat ́egorie"
