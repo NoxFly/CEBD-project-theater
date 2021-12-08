@@ -36,16 +36,18 @@ clé : typeReduction
 <tY, tA> une réduction de facteur tA pour une population tY
 
 
-Vente(noAchat*, dateAchat)
+Vente(noAchat*, noRepresentation, dateAchat)
 clé : noAchat
-<n, d> la vente numéro n d'un ou plusieurs tickets acheté(s) à la date d
+<n, d, r> la vente numéro n d'un ou plusieurs tickets acheté(s) à la date d pour la représentation r
 
-Ticket(noTicket*, noAchat, noRepresentation, noRang, noPlace, prixTotal, typeReduc)
+Ticket[noRepresentation] ⊆ Representation[noRepresentation]
+
+
+Ticket(noTicket*, noAchat, noRang, noPlace, prixTotal, typeReduc)
 clé : noTicket
-<nT, nA, nRe, nRa, nP, p, r> le ticket numéro nT lié à son achat nA pour la reprensation nRe à la place nP au rang nRa acheté au prix p avec la reduction associée r
+<nT, nA, nRa, nP, p, r> le ticket numéro nT lié à son achat nA à la place nP au rang nRa acheté au prix p avec la reduction associée r
 
 Ticket[noAchat] ⊆ Vente[noAchat]
-Ticket[noRepresentation] ⊆ Representation[noRepresentation]
 Ticket[typeReduction] ⊆ Reduction[typeReduction]
 Ticket[noRang] ⊆ Place[noRang]
 Ticket[noPlace] ⊆ Place[noPlace]
